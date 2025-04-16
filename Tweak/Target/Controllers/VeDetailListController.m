@@ -97,15 +97,6 @@
         [specifiers addObject:titleSpecifier];
     }
 
-    if (![[[self log] content] isEqualToString:@""]) {
-        PSSpecifier* contentSpecifier = [PSSpecifier preferenceSpecifierNamed:nil target:self set:nil get:nil detail:nil cell:PSButtonCell edit:nil];
-        [contentSpecifier setProperty:[VeDetailCell class] forKey:@"cellClass"];
-        [contentSpecifier setButtonAction:@selector(copyContent:)];
-        [contentSpecifier setProperty:@"Message" forKey:@"title"];
-        [contentSpecifier setProperty:[[self log] content] forKey:@"content"];
-        [specifiers addObject:contentSpecifier];
-    }
-
     PSSpecifier* dateSpecifier = [PSSpecifier preferenceSpecifierNamed:nil target:self set:nil get:nil detail:nil cell:PSButtonCell edit:nil];
     [dateSpecifier setProperty:[VeDetailCell class] forKey:@"cellClass"];
     [dateSpecifier setButtonAction:@selector(copyContent:)];
@@ -118,6 +109,16 @@
     }
 
     [specifiers addObject:dateSpecifier];
+
+    if (![[[self log] content] isEqualToString:@""]) {
+        PSSpecifier* contentSpecifier = [PSSpecifier preferenceSpecifierNamed:nil target:self set:nil get:nil detail:nil cell:PSButtonCell edit:nil];
+        [contentSpecifier setProperty:[VeDetailCell class] forKey:@"cellClass"];
+        [contentSpecifier setButtonAction:@selector(copyContent:)];
+        [contentSpecifier setProperty:[[self log] content] forKey:@"title"];
+        [contentSpecifier setProperty:@"" forKey:@"content"];
+        [contentSpecifier setProperty:@(420) forKey:@"height"];
+        [specifiers addObject:contentSpecifier];
+    }
 
     NSArray* attachments = [[LogManager sharedInstance] getAttachmentsForLog:[self log]];
     if ([attachments count] > 0) {

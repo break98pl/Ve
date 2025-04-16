@@ -22,9 +22,9 @@ static void override_BulletinBoardController_viewDidLoad(BulletinBoardController
 	orig_BulletinBoardController_viewDidLoad(self, _cmd);
 
 	PSSpecifier* veGroupSpecifier = [PSSpecifier emptyGroupSpecifier];
-	[veGroupSpecifier setProperty:@"Lists all Notifications that have been logged by Vē in the past." forKey:@"footerText"];
+	[veGroupSpecifier setProperty:@"Hiển thị tất cả thông báo đã hiện trong Trung tâm thông báo." forKey:@"footerText"];
 
-	PSSpecifier* veButtonSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Notification Logs" target:self set:nil get:nil detail:[VeLogsListController class] cell:PSLinkCell edit:nil];
+	PSSpecifier* veButtonSpecifier = [PSSpecifier preferenceSpecifierNamed:@"Lịch sử thông báo" target:self set:nil get:nil detail:[VeLogsListController class] cell:PSLinkCell edit:nil];
 	[veButtonSpecifier setProperty:@(YES) forKey:@"enabled"];
 
 	[self insertContiguousSpecifiers:@[veGroupSpecifier, veButtonSpecifier] atIndex:0];

@@ -3,6 +3,7 @@ VeTarget_FILES = VeTarget.m $(wildcard Controllers/*.m Controllers/Cells/*.m Con
 VeTarget_CFLAGS = -fobjc-arc
 VeTarget_FRAMEWORKS = UIKit
 VeTarget_PRIVATE_FRAMEWORKS = Preferences
+VeTarget_LIBRARIES = substrate
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/tweak.mk

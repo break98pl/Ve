@@ -51,7 +51,7 @@
 
     // Unseen notifications will be sent again after a respring.
     // We check by date if the notification has been logged already.
-    if ([self isLogAlreadyLogged:log inLogs:logs]) {
+    if ([self isLogAlreadyLogged:log inLogs:logs] || ![bulletin message]) {
         return;
     }
 
